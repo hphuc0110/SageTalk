@@ -11,20 +11,29 @@ import Link from "next/link"
 type BlogPost = {
   id: number
   title: string
-  excerpt: string
-  author: string
-  date: string
-  category: string
-  readTime: string
   image: string
   views: string
   slug: string
 }
 
 export default function BlogSection() {
-  const { visibleItems, containerRef } = useStaggeredAnimation(5, 200)
+  const { visibleItems, containerRef } = useStaggeredAnimation(10, 200)
 
   const blogPosts: BlogPost[] = [
+    {
+      id: 10,
+      title: "Tiếng Anh Thuyết Trình Chuyên Nghiệp: Lợi Thế Chiến Lược Dành Cho Lãnh Đạo Hiện Đại",
+      image: "/images/blog-strategic-advantage.webp",
+      views: "3.2k",
+      slug: "tieng-anh-thuyet-trinh-chuyen-nghiep",
+    },
+    {
+      id: 9,
+      title: "THE ARENA – Làm chủ kỹ năng trả lời Q&A bằng tiếng Anh cho lãnh đạo",
+      image: "/images/blog-the-arena.webp",
+      views: "3.6k",
+      slug: "the-arena-qa-skills",
+    },
     {
       id: 1,
       title: "Ấn Tượng Đầu Không Chỉ Là Ngoại Hình Hay Danh Thiếp Mà Là Cách Giao Tiếp",
@@ -55,10 +64,31 @@ export default function BlogSection() {
     },
     {
       id: 5,
-      title: "Vượt Qua Nỗi Sợ Nói Tiếng Anh Trước Đám Đông - StageSpeak Giúp Bạn Làm Chủ Sân Khấu",
+      title: "Vượt Qua Nỗi Sợ Nói Tiếng Anh Trước Đám Đông - MasterTalk Giúp Bạn Làm Chủ Sân Khấu",
       image: "/images/blog-overcome-fear.webp",
       views: "892",
       slug: "vuot-qua-so-set-noi-tieng-anh",
+    },
+    {
+      id: 6,
+      title: "Tiếng Anh Thuyết Trình Cho Quản Lý Cấp Cao: Lộ Trình Học Dựa Trên Khoa Học Andragogy",
+      image: "/images/blog-andragogy.png",
+      views: "1.5k",
+      slug: "tieng-anh-thuyet-trinh-cho-quan-ly-cap-cao",
+    },
+    {
+      id: 7,
+      title: "Flipped Classroom tại SageTalk – Giải pháp Học Tập Hiệu Quả Cho Người Đi Làm Bận Rộn",
+      image: "/images/blog-flipped-classroom.webp",
+      views: "1.8k",
+      slug: "flipped-classroom-tai-sagetalk",
+    },
+    {
+      id: 8,
+      image: "/images/blog-3c-framework.webp",
+      title: "3C Credibility Framework – Xây dựng Uy Tín Trong Từng Lời Nói",
+      views: "2.1k",
+      slug: "3c-credibility-framework",
     },
   ]
 
@@ -78,15 +108,10 @@ export default function BlogSection() {
               className="object-cover group-hover:scale-110 transition-transform duration-700"
             />
 
-            <div className="absolute top-4 left-4">
-              <Badge className="bg-[#d6a067] text-white border-0 font-semibold">{post.category}</Badge>
-            </div>
           </div>
 
           <div className="p-6">
             <h3 className="text-lg font-semibold mb-3 text-gray-900 line-clamp-2">{post.title}</h3>
-            <p className="text-gray-700 mb-4 leading-relaxed text-sm line-clamp-3">{post.excerpt}</p>
-
 
             <Link href={`/blog/${post.slug}`}>
               <Button className="w-full bg-gradient-to-r from-[#d6a067] to-[#f4d03f] hover:from-[#b8864f] hover:to-[#d6a067] text-black font-semibold py-3 rounded-xl transition-all duration-300 hover:scale-105 text-sm">
